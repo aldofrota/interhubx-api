@@ -1,0 +1,29 @@
+{
+  "name": "interhubx-api",
+  "version": "1.0.0",
+  "description": "Api da Interhubx",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldofrota/interhubx-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldofrota/interhubx-api/issues"
+  },
+  "homepage": "https://github.com/aldofrota/interhubx-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  },
+  "type": "module"
+}
