@@ -1,5 +1,5 @@
 # interhubx-api
-Api da Interhubx
+API para o projeto da Interhubxxx
 
 # Instruções para rodar o projeto
 
