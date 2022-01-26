@@ -20,6 +20,10 @@ const Ordem = database.define('ordem', {
     },
     cliente: {
         type: Sequelize.STRING
+    },
+    status: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 })
  

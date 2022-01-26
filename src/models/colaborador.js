@@ -17,6 +17,9 @@ const Colaborador = database.define('colaborador', {
     },
     senha: {
         type: Sequelize.STRING
+    },
+    perfil: {
+        type: Sequelize.STRING
     }
 })
  

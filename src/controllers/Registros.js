@@ -24,13 +24,15 @@ exports.novoColaborador = async (req, res) => {
     const nome = req.body.nome
     const email = req.body.email
     const senha = req.body.senha
+    const perfil = req.body.perfil
 
     try {
         const resultado = await database.sync();
         const registroColaborador = await Colaborador.create({
             nome: nome,
             email: email,
-            senha: senha
+            senha: senha,
+            perfil: perfil
 
         })
         res.status(200).json({ sucess: true, message: 'colaborador registrado'})
@@ -46,6 +48,7 @@ exports.novaOrdem = async (req, res) => {
     const descricao = req.body.descricao
     const colaborador = req.body.colaborador
     const cliente = req.body.cliente
+    const status = req.body.status
 
     try {
         const resultado = await database.sync();
@@ -53,7 +56,8 @@ exports.novaOrdem = async (req, res) => {
             titulo: titulo,
             descricao: descricao,
             colaborador: colaborador,
-            cliente: cliente
+            cliente: cliente,
+            status: status
         })
         res.status(200).json({ sucess: true, message: 'ordem registrada' })
 
