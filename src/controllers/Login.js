@@ -19,7 +19,7 @@ exports.login = async (req, res) => {
         res.status(200).json({
             sucess: true,
             message: 'Ususario logado com sucesso',
-            usuario: usuario.nome,
+            nome: usuario.nome,
             perfil: usuario.perfil})
     }
     catch (error) {
