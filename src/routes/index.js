@@ -20,6 +20,9 @@ router.get('/clientes', listagens.clientes)
 router.get('/colaboradores', listagens.colaboradores)
 router.get('/ordens', listagens.ordens)
 
+// Rota para os dados do painel
+router.get('/dadospainel', listagens.dadosPainel)
+
 // Rota de login
 router.post('/login', login.login)
 

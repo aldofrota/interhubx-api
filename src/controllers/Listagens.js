@@ -26,8 +26,18 @@ exports.colaboradores = async (req, res) => {
 }
 
 exports.ordens = async (req, res) => {
+
     try {
-        const ordens = await Ordem.findAll()
+        const ordens = await Ordem.sequelize.query(
+        `SELECT
+            titulo,
+            descricao,
+            cliente,
+            colaborador,
+            status,
+            STRFTIME('%d/%m/%Y', createdAt) AS data
+        FROM ordems AS ordem`, { type: database.Sequelize.QueryTypes.SELECT })
+
         res.status(200).json(ordens)
 
     } catch (error) {
@@ -35,3 +45,24 @@ exports.ordens = async (req, res) => {
     }
 
 }
+
+exports.dadosPainel = async (req, res) => {
+
+    try {
+        const dadosPainel = await Ordem.sequelize.query(
+            `SELECT 
+                STRFTIME('%d', createdAt) as dia, 
+                COUNT(*) as qtde
+            FROM ordems
+            where STRFTIME('%m/%Y', createdAt) = STRFTIME('%m/%Y', date('now'))
+            group by dia`, { type: database.Sequelize.QueryTypes.SELECT })
+        
+        res.status(200).json(dadosPainel)
+
+    } catch (error) {
+        throw error
+    }
+}
+
+
+
