@@ -27,7 +27,7 @@ exports.novoColaborador = async (req, res) => {
     const perfil = req.body.perfil
 
     try {
-        const resultado = await database.sync();
+
         const registroColaborador = await Colaborador.create({
             nome: nome,
             email: email,
@@ -51,7 +51,7 @@ exports.novaOrdem = async (req, res) => {
     const status = req.body.status
 
     try {
-        const resultado = await database.sync();
+        
         const registroOrdem = await Ordem.create({
             titulo: titulo,
             descricao: descricao,
