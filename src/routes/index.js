@@ -22,6 +22,7 @@ router.get('/ordens', listagens.ordens)
 
 // Rota para os dados do painel
 router.get('/dadospainel', listagens.dadosPainel)
+router.get('/mapapainel', listagens.mapaPainel)
 
 // Rota de login
 router.post('/login', login.login)

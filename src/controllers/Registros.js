@@ -15,7 +15,7 @@ exports.novoCliente = async (req, res) => {
         res.status(200).json({ sucess: true, message: 'cliente registrado'})
 
     } catch (error) {
-        throw error
+        res.status(500).json({ sucess: false, message: 'erro ao registrar cliente' })
     }
 }
 
@@ -25,6 +25,7 @@ exports.novoColaborador = async (req, res) => {
     const email = req.body.email
     const senha = req.body.senha
     const perfil = req.body.perfil
+    const autor = req.body.autor
 
     try {
 
@@ -38,7 +39,7 @@ exports.novoColaborador = async (req, res) => {
         res.status(200).json({ sucess: true, message: 'colaborador registrado'})
 
     } catch (error) {
-        throw error
+        res.status(500).json({ sucess: false, message: 'erro ao registrar colaborador' })
     }
 }
 
@@ -49,20 +50,25 @@ exports.novaOrdem = async (req, res) => {
     const colaborador = req.body.colaborador
     const cliente = req.body.cliente
     const status = req.body.status
+    const latitude = req.body.latitude
+    const longitude = req.body.longitude
+    const autor = req.body.usuario
 
     try {
-        
         const registroOrdem = await Ordem.create({
             titulo: titulo,
             descricao: descricao,
             colaborador: colaborador,
             cliente: cliente,
-            status: status
+            status: status,
+            latitude: latitude,
+            longitude: longitude,
+            autor: autor
         })
         res.status(200).json({ sucess: true, message: 'ordem registrada' })
 
     } catch (error) {
-        throw error
+        res.status(500).json({ sucess: false, message: 'erro ao registrar ordem' })
     }
 
 }

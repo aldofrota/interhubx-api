@@ -23,6 +23,6 @@ exports.login = async (req, res) => {
             perfil: usuario.perfil})
     }
     catch (error) {
-        console.log(error)
+        res.status(500).json({ sucess: false, message: 'erro ao logar usuario' })
     }
 }

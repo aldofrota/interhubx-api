@@ -24,7 +24,18 @@ const Ordem = database.define('ordem', {
     status: {
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
+    autor: {
+        type: Sequelize.STRING,
+    },
+    latitude: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    longitude: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
 })
  
 module.exports = Ordem;

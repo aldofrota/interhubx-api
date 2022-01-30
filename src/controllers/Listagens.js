@@ -30,12 +30,16 @@ exports.ordens = async (req, res) => {
     try {
         const ordens = await Ordem.sequelize.query(
         `SELECT
+            id,
             titulo,
             descricao,
             cliente,
             colaborador,
             status,
-            STRFTIME('%d/%m/%Y', createdAt) AS data
+            latitude,
+            longitude,
+            STRFTIME('%d/%m/%Y', createdAt) AS data,
+            autor
         FROM ordems AS ordem`, { type: database.Sequelize.QueryTypes.SELECT })
 
         res.status(200).json(ordens)
@@ -64,5 +68,22 @@ exports.dadosPainel = async (req, res) => {
     }
 }
 
+exports.mapaPainel = async (req, res) => {
+
+    try {
+        const mapaPainel = await Ordem.sequelize.query(
+            `SELECT
+                colaborador,
+                latitude,
+                longitude,
+                MAX(createdAt)
+            FROM ordems GROUP BY colaborador`, { type: database.Sequelize.QueryTypes.SELECT })
+        
+        res.status(200).json(mapaPainel)
+
+    } catch (error) {
+        throw error
+    }
+}
 
 
