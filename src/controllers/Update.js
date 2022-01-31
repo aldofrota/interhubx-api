@@ -17,7 +17,7 @@ exports.updateOrdem = async (req, res) => {
 
         res.status(200).json({ sucess: true, message: 'ordem atualizada' })
     } catch (error) {
-        throw error
+        res.status(400).json({ sucess: false, message: 'ordem não atualizada' })
     }
 
 }

@@ -25,7 +25,6 @@ exports.novoColaborador = async (req, res) => {
     const email = req.body.email
     const senha = req.body.senha
     const perfil = req.body.perfil
-    const autor = req.body.autor
 
     try {
 
